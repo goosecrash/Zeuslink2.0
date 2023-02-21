@@ -17,7 +17,7 @@ import requests
 
 
 def get_total_supply():
-    response = requests.get('http://localhost:5000/total_supply')
+    response = requests.get('http://localhost:8080/total_supply')
     return response.text
 
 
@@ -29,7 +29,7 @@ total_supply = get_total_supply()
 
 
 # Define the URL of the Flask server
-flask_server_url = 'http://localhost:5000'
+flask_server_url = 'http://localhost:8080'
 
 # Define a function to get the total supply from the Flask server
 def get_total_supply():

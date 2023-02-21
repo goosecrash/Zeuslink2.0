@@ -1,12 +1,21 @@
-from flask import Flask, render_template
+from flask import Flask, request
 
 app = Flask(__name__)
 
-total_supply = 1000
+# Define the total_supply variable here
+total_supply = 1000000
 
-@app.route("/")
-def home():
-    return render_template('index.html', total_supply=total_supply)
+@app.route('/total_supply', methods=['GET'])
+def get_total_supply():
+    global total_supply
+    return str(total_supply)
 
-if __name__ == "__main__":
-    app.run()
+@app.route('/mine', methods=['POST'])
+def mine():
+    global total_supply
+    mined_coins = int(request.form['coins'])
+    total_supply += mined_coins
+    return "Mined {} coins. Total supply is now {}.".format(mined_coins, total_supply)
+
+if __name__ == '__main__':
+    app.run(host='localhost', port=8080)
