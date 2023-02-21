@@ -33,6 +33,7 @@ flask_server_url = 'http://localhost:5000'
 
 # Define a function to get the total supply from the Flask server
 def get_total_supply():
+    total_supply = get_total_supply()
     try:
         response = requests.get(flask_server_url + '/total_supply')
         response.raise_for_status()  # Raise an exception if the response status code is not 200
