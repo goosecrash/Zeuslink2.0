@@ -18,4 +18,4 @@ def mine():
     return "Mined {} coins. Total supply is now {}.".format(mined_coins, total_supply)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='localhost', port=8080)
